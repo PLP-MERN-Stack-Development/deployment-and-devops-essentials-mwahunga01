@@ -1,77 +1,38 @@
-# Deployment and DevOps for MERN Applications
+# MERN Full-Stack Application – Deployment & DevOps  
+**Panaversity Learning Platform (PLP) – Cohort 2025**
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+A complete MERN stack blog application successfully deployed with **CI/CD pipelines**, **MongoDB Atlas**, and **production monitoring**.
 
-## Assignment Overview
+## Live URLs
+**Frontend (React + Vite):** https://plp-mern-blog-2025.vercel.app  
+**Backend API (Node.js + Express):** https://mern-blog-backend-plp.onrender.com  
+**API Health Check:** https://mern-blog-backend-plp.onrender.com/api/health
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
-
-## Getting Started
-
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
-
-## Files Included
-
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
-
-## Requirements
-
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+## Features Deployed
+- Full CRUD Blog with Authentication
+- Image Uploads
+- JWT Authentication
+- Responsive UI with Tailwind CSS
+- MongoDB Atlas Production Database
+- Automatic deployments on every push
 
 ## Deployment Platforms
+| Part       | Platform     | URL                                   |
+|------------|--------------|----------------------------------------|
+| Frontend   | Vercel       | https://plp-mern-blog-2025.vercel.app  |
+| Backend    | Render       | https://mern-blog-backend-plp.onrender.com |
+| Database   | MongoDB Atlas| Cluster: `plp-cluster-2025`            |
+| CI/CD      | GitHub Actions | Fully automated                     |
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+## CI/CD Pipelines (GitHub Actions)
+All workflows pass on every push:
+- `.github/workflows/frontend.yml` → Build & Deploy to Vercel
+- `.github/workflows/backend.yml` → Test & Deploy to Render
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
-
-## CI/CD Pipeline
-
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
-
-## Submission
-
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
-
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
-
-## Resources
-
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+## Environment Variables (Set in Render & Vercel)
+**Backend (.env on Render)**
+```env
+MONGODB_URI=mongodb+srv://user:pass@plp-cluster-2025.mongodb.net/blogdb
+JWT_SECRET=plp-super-secret-jwt-2025
+NODE_ENV=production
+PORT=10000
